@@ -1,0 +1,44 @@
+﻿@model List<questions>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Current Questions</h1>
+
+<form method="get" action="/stack/search">
+    Search: <input type="text" name="str" />
+    <input type="submit" value="Search" />
+</form>
+
+<h1>Questions</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (questions quest in Model)
+        {
+            <tr>
+                <td>@quest.ID</td>
+                <td>@quest.Username</td>
+                <td>@quest.Detail</td>
+                <td>
+                    <a asp-action="DeleteQuestion" asp-route-questID="@quest.ID" class="btn btn-danger">Delete</a>
+                    <a asp-action="EditQuestion" asp-route-questID="@quest.ID" class="btn btn-secondary">Edit</a>
+                    <a asp-action="Answers" asp-route-QuestID="@quest.ID" class="btn btn-primary">Answer</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<a asp-action="NewQuestion"asp-route-QuestID="NewQuestion" class="btn btn-primary">NewQuestion</a>
+
+

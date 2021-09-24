@@ -1,0 +1,13 @@
+﻿@model answers
+@{
+    ViewData["Title"] = "Response";
+}
+
+<h1>Repsonse form</h1>
+
+<form method="post" action="/questions/">
+    First Name: <input type="text" name="firstname" /><br />
+    Last Name: <input type="text" name="lastname" /><br />
+    Answer: <input type="text" name="Response" <br />
+    <input type="submit" value="Submit" />
+</form>

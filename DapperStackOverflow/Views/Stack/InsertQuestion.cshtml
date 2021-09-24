@@ -1,0 +1,11 @@
+﻿@model questions
+@{
+    ViewData["Title"] = "InsertQuestion";
+}
+
+<h1>InsertQuestion</h1>
+<form method="post" action="/questions/">
+    username: <input type="text" name="Username" /><br />
+    detail: <input type="text" name="Question" /><br />
+    <input type="submit" value="Submit" />
+</form>

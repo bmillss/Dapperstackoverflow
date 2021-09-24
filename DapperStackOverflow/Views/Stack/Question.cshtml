@@ -1,0 +1,39 @@
+﻿@model List<questions>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Product Search</h1>
+
+<form method="get" action="/product/search">
+    Search: <input type="text" name="str" /><br />
+    <input type="submit" value="Search" />
+</form>
+
+<h1>Questions </h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (questions cat in Model)
+        {
+            <tr>
+                <td>@cat.ID</td>
+                <td>@cat.Username</td>
+                <td>@cat.Detail</td>
+                <td>
+                    <a asp-action="DeleteQuestion" asp-route-questID="@cat.ID" class="btn btn-danger">Delete</a>
+                    <a asp-action="EditQuestion" asp-route-catid="@cat.ID" class="btn btn-secondary">Edit</a>
+                    <a asp-action="Answers" asp-route-catid="@cat.ID" class="btn btn-primary">Answer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
